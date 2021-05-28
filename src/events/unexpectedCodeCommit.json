@@ -1,0 +1,22 @@
+{
+    "version": "0",
+    "id": "cebf8b3e-2617-cc90-ccf3-e6d5b32dccaa",
+    "detail-type": "CodeCommit Repository State Change",
+    "source": "aws.codecommit",
+    "account": "639512877143",
+    "time": "2021-05-28T09:03:33Z",
+    "region": "eu-west-2",
+    "resources": [
+      "arn:aws:codecommit:eu-west-2:639512877143:testLambdaStack"
+    ],
+    "detail": {
+      "callerUserArn": "arn:aws:iam::639512877143:user/simon",
+      "event": "referenceZoomed",
+      "oldCommitId": "db967c25a46efbec5c16c529f3e88c5ea6095a06",
+      "referenceFullName": "refs/heads/feature/test",
+      "referenceName": "feature/test",
+      "referenceType": "branch",
+      "repositoryId": "56814a24-cf66-4030-99b7-ac073b84eca8",
+      "repositoryName": "testLambdaStack"
+    }
+  }
