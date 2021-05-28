@@ -1,1 +1,12 @@
+# Ignore .aws directory which typically holds credentials etc.
 .aws
+
+# Ignore files / dirs from pip/pyenv etc.
+Pipfile.lock
+.python-version
+
+# Ignore unit testing files
+htmlcov
+junit
+coverage.xml
+.coverage
