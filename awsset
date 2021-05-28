@@ -1,0 +1,7 @@
+#! /bin/bash
+
+export AWS_SHARED_CREDENTIALS_FILE=./.aws/credentials
+
+unsetaws() {
+    unset AWS_SHARED_CREDENTIALS_FILE
+}

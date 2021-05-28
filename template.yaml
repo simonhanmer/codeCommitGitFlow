@@ -1,0 +1,44 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+ Deploy the gitFlow lambda function
+
+Globals:
+  Function:
+    Timeout: 3
+
+Parameters:
+  pAlias:
+    Type: String
+    Description: Alias for version of lambda code deployed.
+  pLogRetention:
+    Type: Number
+    Description: Number of days to retain logs
+    Default: 30
+
+Resources:
+  rGitflowFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: src/
+      Handler: gitflow.lambda_handler
+      Runtime: python3.8
+
+  rLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub /aws/lambda/${rGitflowFunction}
+      RetentionInDays: !Ref pLogRetention
+
+Outputs:
+  # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
+  # Find out more about other implicit resources you can reference within SAM
+  # https://github.com/awslabs/serverless-application-model/blob/master/docs/internals/generated_resources.rst#api
+  functionArn:
+    Value: !GetAtt rGitflowFunction.Arn
+  functionName:
+    Value: !Ref rGitflowFunction
+  logGroup:
+    Value: !Ref rLogGroup
+  IamRoleArn:
+    Value: !GetAtt rGitflowFunctionRole.Arn
