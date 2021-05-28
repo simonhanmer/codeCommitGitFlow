@@ -1,0 +1,22 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "gitflow"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-e1c6vpt6huwg"
+s3_prefix = "gitflow"
+region = "eu-west-2"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
+parameter_overrides = "pAlias=\"live\""
+
+[test]
+[test.deploy]
+[test.deploy.parameters]
+stack_name = "gitflow"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-e1c6vpt6huwg"
+s3_prefix = "gitflow"
+region = "eu-west-2"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
+parameter_overrides = "pAlias=\"dev\" pLogRetention=\"1\""

@@ -18,11 +18,16 @@ Parameters:
 
 Resources:
   rGitflowFunction:
-    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Type: AWS::Serverless::Function
     Properties:
+      Description: Capture branch changes in codeCommit repository
       CodeUri: src/
       Handler: gitflow.lambda_handler
       Runtime: python3.8
+      AutoPublishAlias: !Ref pAlias
+      Policies:
+        - AWSLambdaBasicExecutionRole
+
 
   rLogGroup:
     Type: AWS::Logs::LogGroup
@@ -31,9 +36,6 @@ Resources:
       RetentionInDays: !Ref pLogRetention
 
 Outputs:
-  # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
-  # Find out more about other implicit resources you can reference within SAM
-  # https://github.com/awslabs/serverless-application-model/blob/master/docs/internals/generated_resources.rst#api
   functionArn:
     Value: !GetAtt rGitflowFunction.Arn
   functionName:
