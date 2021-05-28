@@ -1,0 +1,22 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+flake8 = "*"
+pytest = "*"
+pytest-cov = "*"
+pytest-html = "*"
+pytest-env = "*"
+pytest-mock = "*"
+bandit = "*"
+safety = "*"
+
+[packages]
+aws-xray-sdk = "*"
+boto3 = "*"
+boto3-type-annotations = "*"
+
+[requires]
+python_version = "3.8"
